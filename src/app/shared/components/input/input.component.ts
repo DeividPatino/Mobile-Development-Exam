@@ -1,4 +1,6 @@
 import { Component, input, Input, OnInit } from '@angular/core';
+import { Form } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 
 type InputType = 'text' | 'password' | 'email';
 
@@ -12,9 +14,13 @@ export class InputComponent  implements OnInit {
   @Input() label: string = '';
   @Input() placeholder: string = '';
   @Input() type: InputType = 'text';
-
+  @Input() control: FormControl = new FormControl();
   constructor() { }
 
   ngOnInit() {}
+
+  public doWrite(event: any) {
+    this.control.setValue(event.target.value);
+  }
 
 }

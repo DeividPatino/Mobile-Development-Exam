@@ -1,6 +1,7 @@
 
 <ion-content [fullscreen]="true">
-  <ion-card>
+  <form [formGroup]="loginForm" (ngSubmit)="doLogin()">
+    <ion-card>
     <ion-card-content>
       <ion-grid>
         <ion-row>
@@ -9,6 +10,7 @@
           label="Email"
           placeholder="jane@doe.com" 
           type="email"
+          [control]="email"
         ></app-input>
         </ion-col>
       </ion-row>
@@ -18,10 +20,21 @@
           label="Password" 
           placeholder="jane" 
           type="password"
+          [control]="password"
         ></app-input>
         </ion-col>
       </ion-row>
+      <ion-row>
+        <ion-col >
+          <app-button 
+            value="Login" 
+            type="submit"
+            [disabled]="loginForm.invalid"
+          ></app-button>
+        </ion-col>
+        </ion-row>
       </ion-grid>
     </ion-card-content>
   </ion-card>
+  </form>
 </ion-content>
