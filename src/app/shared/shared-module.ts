@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { InputComponent } from './components/input/input.component';
+import { IonicModule } from '@ionic/angular';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [InputComponent],
   imports: [
-    CommonModule
-  ]
+    CommonModule, IonicModule
+  ],
+  exports: [InputComponent]
 })
 export class SharedModule { }
