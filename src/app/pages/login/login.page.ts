@@ -1,30 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { UserService } from '@angular/user';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { IonicModule } from '@ionic/angular';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
-  standalone: false
+  standalone: false,
 })
 export class LoginPage implements OnInit {
-  form = this.fb.group({
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(8)]]
-  });
 
-  constructor(
-    private fb: FormBuilder,
-    private userService: UserService,
-    private loader: LoaderProvider,
-    private toast: ToastProvider,
-    private router: Router
-  ) { }
+  loginForm!: FormGroup;
+
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
+    this.loginForm = this.fb.group({
+      username: ['', [Validators.required, Validators.email]], // Email obligatorio
+      password: ['', [Validators.required, Validators.minLength(8)]] // Min 8 chars
+    });
   }
 
+  onSubmit() {
+    if (this.loginForm.valid) {
+      const { username, password } = this.loginForm.value;
+      console.log('Login con:', username, password)
+    }  
+  }  
 }
