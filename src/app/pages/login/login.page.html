@@ -1,15 +1,27 @@
 
 <ion-content [fullscreen]="true">
-  <ion-grid>
-    <ion-row>
-      <ion-col >
+  <ion-card>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+        <ion-col >
         <app-input 
-          label="name" 
-          placeholder="jane" 
-          type="text"
+          label="Email"
+          placeholder="jane@doe.com" 
+          type="email"
         ></app-input>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col >
+        <app-input 
+          label="Password" 
+          placeholder="jane" 
+          type="password"
+        ></app-input>
+        </ion-col>
+      </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
