@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { CONSTANTS } from 'src/app/pages/Constants/constants';
+import { CONSTANTS } from 'src/app/pages/constants/constants';
 import { IUser } from 'src/app/pages/interfaces/user.interface';
 import { StorageService } from 'src/app/shared/services/storage/storage';
 import { v4 } from 'uuid';
